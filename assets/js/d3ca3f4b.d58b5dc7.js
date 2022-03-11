@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcommon_voice_docs=self.webpackChunkcommon_voice_docs||[]).push([[635],{8177:function(o){o.exports=JSON.parse('{"allTagsPath":"/common-voice-docs/blog/tags","slug":"/common-voice-docs/blog/tags/tutorial","name":"tutorial","count":1,"permalink":"/common-voice-docs/blog/tags/tutorial"}')}}]);

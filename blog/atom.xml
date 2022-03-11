@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://your-docusaurus-test-site.com/common-voice-docs/blog</id>
+    <title>Common Voice at NRC Blog</title>
+    <updated>2022-03-07T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://your-docusaurus-test-site.com/common-voice-docs/blog"/>
+    <subtitle>Common Voice at NRC Blog</subtitle>
+    <icon>https://your-docusaurus-test-site.com/common-voice-docs/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[First Blog Post]]></title>
+        <id>first-blog-post</id>
+        <link href="https://your-docusaurus-test-site.com/common-voice-docs/blog/first-blog-post"/>
+        <updated>2022-03-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This first blog post is just a stand-in for starting the blog feature of this website. I'm not sure we'll use it, though.]]></summary>
+        <content type="html"><![CDATA[<p>This first blog post is just a stand-in for starting the blog feature of this website. I'm not sure we'll use it, though.</p>]]></content>
+        <author>
+            <name>Eric Joanis</name>
+            <email>eric.joanis@nrc-cnrc.gc.ca</email>
+        </author>
+        <category label="tutorial" term="tutorial"/>
+    </entry>
+</feed>
