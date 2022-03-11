@@ -7,14 +7,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Common Voice at NRC',
-  tagline: 'Common Voice for Indigenous Languages and Data Soveignty',
+  tagline: 'Common Voice for Indigenous Languages and Data Sovereignty',
   url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  baseUrl: '/common-voice-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'joanise', // Usually your GitHub org/user name.
   projectName: 'common-voice-docs', // Usually your repo name.
+  trailingSlash: true,
 
   presets: [
     [
@@ -55,7 +56,7 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Intro',
+            label: 'Docs',
           },
           // Comment out the following to disable the blog:
           {to: '/blog', label: 'Blog', position: 'left'},
@@ -78,36 +79,36 @@ const config = {
               },
             ],
           },
-          // {
-          //   title: 'Community',
-          //   items: [
-          //     {
-          //       label: 'Stack Overflow',
-          //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-          //     },
-          //     {
-          //       label: 'Discord',
-          //       href: 'https://discordapp.com/invite/docusaurus',
-          //     },
-          //     {
-          //       label: 'Twitter',
-          //       href: 'https://twitter.com/docusaurus',
-          //     },
-          //   ],
-          // },
-          // {
-          //   title: 'More',
-          //   items: [
-          //     {
-          //       label: 'Blog',
-          //       to: '/blog',
-          //     },
-          //     {
-          //       label: 'GitHub',
-          //       href: 'https://github.com/facebook/docusaurus',
-          //     },
-          //   ],
-          // },
+          {
+            title: 'Community',
+            items: [
+              // {
+              //   label: 'Stack Overflow',
+              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              // },
+              // {
+              //   label: 'Discord',
+              //   href: 'https://discordapp.com/invite/docusaurus',
+              // },
+              // {
+              //   label: 'Twitter',
+              //   href: 'https://twitter.com/docusaurus',
+              // },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/joanise/common-voice-docs',
+              },
+            ],
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} National Research Council Canada. Built with Docusaurus.`,
       },
