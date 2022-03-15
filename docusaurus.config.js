@@ -25,7 +25,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/joanise/common-voice-docs/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/joanise/common-voice-docs/tree/main/',
         },
         // blog: false,
         // Comment out the following to disable the blog:
@@ -33,7 +33,7 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/joanise/common-voice-docs/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/joanise/common-voice-docs/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
