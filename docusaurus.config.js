@@ -9,7 +9,7 @@ const config = {
   title: 'Common Voice at NRC',
   tagline: 'Common Voice for Indigenous Languages and Data Sovereignty',
   url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  baseUrl: '/common-voice-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
