@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcommon_voice_docs=self.webpackChunkcommon_voice_docs||[]).push([[979],{6847:function(o){o.exports=JSON.parse('{"permalink":"/common-voice-docs/blog/tags/tutorial","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
