@@ -1,0 +1,23 @@
+# CURRENT_UID=$(id -u):$(id -g) docker-compose --project-name "common-voice" up
+
+version: '3.9'
+services:
+  web:
+    container_name: cvd-web
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - .:/code
+    environment:
+      - DOTENV_CONFIG_PATH=/code/.env-local-docker
+    networks:
+      - voice-web
+    ports:
+      - 8071:3000
+    command: bash -c "yarn && yarn start --host 0.0.0.0 --port 3000"
+    user: ${CURRENT_UID}
+
+
+networks:
+  voice-web:
