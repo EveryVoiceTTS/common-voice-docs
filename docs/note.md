@@ -271,8 +271,10 @@ Originating from `web/src/components/layout/layout.tsx`
 It uses `web/src/utility.ts:isProduction()` which simply check if the `window.location.origin === URLS.HTTP_ROOT` where `URLS.HTTP_ROOT` is `https://commonvoice.mozilla.org`.
 
 
-## Microsoft Azure
-Can we use Microsoft Azure instead of AWS S#?
+## Backup
+
+### Microsoft Azure
+Can we use Microsoft Azure instead of AWS S3?
 * [Access Azure Blob Storage from Your Apps using S3 Java API](https://devblogs.microsoft.com/cse/2016/05/22/access-azure-blob-storage-from-your-apps-using-s3-api/)
 * [S3Proxy](https://github.com/gaul/s3proxy) S3Proxy implements the S3 API and proxies requests, enabling several use cases:
     * translation from S3 to Backblaze B2, EMC Atmos, Google Cloud, Microsoft Azure, and OpenStack Swift
@@ -350,7 +352,7 @@ We need to set a minimum of environment variables.
 ```
 
 
-## nextcloud
+### nextcloud
 [WEBDAV WITH CURL](https://code.blogs.iiidefix.net/posts/webdav-with-curl/)
 
 [list files/folders in owncloud with php curl](https://stackoverflow.com/a/26676902)
@@ -382,6 +384,29 @@ curl \
   --upload-file - \
   -H "Depth: 1" \
   < webdav.list_files
+```
+
+
+## Task a New Image to Perform NRC Related Tasks
+### Backup
+We've implemented an initial solution using nextcloud.
+For this purpose, we've added a `task` container to common-voice's current docker stack.
+This container runs `crond`.
+The script `synchronize2webdav.py` handle making a copy of the audio file from S3Proxy to nextcloud.
+
+#### `crond`
+`crond`'s image is quite minimalist.
+It runs scripts under `/etc/periodic/*` using `run-parts`.
+Note that your scipts can't be `*.sh` since `run-parts` is capricious:
+```
+run-parts runs a number of scripts or programs found in a single directory directory.
+Filenames should consist entirely of upper and lower case letters, digits, underscores, and hyphens.
+Subdirectories of directory and files with other names will be silently ignored.
+
+Scripts	must follow the #!/bin/interpretername convention in order to be executed.
+They will not automatically be executed by /bin/sh.
+
+The files found will be run in the lexical sort order of the filenames.
 ```
 
 
