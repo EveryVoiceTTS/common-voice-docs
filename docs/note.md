@@ -377,15 +377,19 @@ webdav.list_files
 Note that the order of the following command is crutial, or so it seems.
 ```bash
 curl \
-  -u 2c523d8d-449f-4176-bb05-SSSSSSSSSSSS:cPmzY-ZZZZZ-PD8dd-SSSSS-2DC3F \
+  -u LLLLLLLL-LLLL-LLLL-LLLL-LLLLLLLLLLLL:PPPPP-PPPPP-PPPPP-PPPPP-PPPPP \
   -i \
   -X PROPFIND \
-  https://nextcloud.nrc-cnrc.gc.ca/remote.php/dav/files/2c523d8d-449f-4176-bb05-SSSSSSSSSSSS/CommonVoice/ \
+  https://nextcloud.nrc-cnrc.gc.ca/remote.php/dav/files/LLLLLLLL-LLLL-LLLL-LLLL-LLLLLLLLLLLL/CommonVoice/ \
   --upload-file - \
   -H "Depth: 1" \
   < webdav.list_files
 ```
 
+##### NextCloud@NRC
+https://nextcloud.nrc-cnrc.gc.ca
+It uses your MS Teams password.
+If your are looking for a guide: [NextCloud NRC User Guide Advance](https://nextcloud.nrc-cnrc.gc.ca/f/42866)
 
 ## Task a New Image to Perform NRC Related Tasks
 ### Backup
@@ -393,6 +397,14 @@ We've implemented an initial solution using nextcloud.
 For this purpose, we've added a `task` container to common-voice's current docker stack.
 This container runs `crond`.
 The script `synchronize2webdav.py` handle making a copy of the audio file from S3Proxy to nextcloud.
+#### Setting up backup
+You need to copy and populate `.env-tasks`
+```bash
+cp .env-tasks.example .env-tasks
+```
+* `WEBDAV_HOSTNAME` as the form `https://nextcloud.nrc-cnrc.gc.ca/remote.php/dav/files/2c523d8d-449f-4176-bb05-d8bde72ad65f/`
+* `WEBDAV_LOGIN` as the form `LLLLLLLL-LLLL-LLLL-LLLL-LLLLLLLLLLLL`
+* `WEBDAV_PASSWORD` as the form `PPPPP-PPPPP-PPPPP-PPPPP-PPPPP`
 
 #### `crond`
 `crond`'s image is quite minimalist.
