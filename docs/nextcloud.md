@@ -32,6 +32,15 @@ curl \
   < webdav.list_files
 ```
 
+Create a folder
+```bash
+curl \
+  -u $login:$password \
+  -i \
+  -X MKCOL \
+  https://nextcloud.nrc-cnrc.gc.ca/remote.php/dav/files/$login/CommonVoice
+```
+
 ## NextCloud@NRC
 https://nextcloud.nrc-cnrc.gc.ca
 It uses your MS Teams password.
