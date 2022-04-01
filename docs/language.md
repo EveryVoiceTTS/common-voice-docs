@@ -16,3 +16,11 @@ cp en/* git/
 cp en/* str/
 ```
 
+## Generating Utterances
+```bash
+mkdir -p server/data/git
+mkdir -p server/data/str
+
+./generator.py > server/data/git/utterances.txt
+./generator.py > server/data/str/utterances.txt
+```
