@@ -18,6 +18,8 @@ cp .env-tasks.example .env-tasks
 
 
 ### `crond`
+This mircroservice was inspired by [Running cron jobs in a Docker Alpine container](https://devopsheaven.com/cron/docker/alpine/linux/2017/10/30/run-cron-docker-alpine.html).
+
 `crond`'s image is quite minimalist.
 It runs scripts under `/etc/periodic/*` using `run-parts`.
 Note that your scipts can't be `*.sh` since `run-parts` is capricious:
