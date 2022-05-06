@@ -13,7 +13,12 @@ Namely:
 - we need minor style and markup changes (ie taking away the language around Mozilla and adding some markup around the project)
 - Common Voice currently collects audio in a lossy format (mp3), we need to change this to lossless
   16bit, 48k sample rate, lossless wav files
-- Perhaps add some server-side scripting to automate signal processing/de-noising/backup
+- Perhaps add some server-side scripting to:
+    - automate signal processing;
+    - de-noising.  This is an example of a denoising tool we might use. https://github.com/xiph/rnnoise;
+    - We might also want to automate forced alignment with MFA;
+    - backup the sentence db `mysqldump -u root --password=PASSWORD voiceweb > voiceweb.sql`
+    - backup audio files to nextcloud;
 - Is it set up so that auth0 let’s us define a list of email address or something that are whitelisted for signing up?
     The recordings should also only be accessible to pre-defined sets of users.
     Do you have a sense of whether it will be easier to password protect the entire site or whether we could have tiers of access for particular recordings?
