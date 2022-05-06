@@ -33,3 +33,20 @@ They will not automatically be executed by /bin/sh.
 
 The files found will be run in the lexical sort order of the filenames.
 ```
+
+
+#### Help
+```bash
+crond --help
+BusyBox v1.34.1 (2022-04-04 10:19:27 UTC) multi-call binary.
+
+Usage: crond [-fbS] [-l N] [-d N] [-L LOGFILE] [-c DIR]
+
+        -f      Foreground
+        -b      Background (default)
+        -S      Log to syslog (default)
+        -l N    Set log level. Most verbose 0, default 8
+        -d N    Set log level, log to stderr
+        -L FILE Log to FILE
+        -c DIR  Cron dir. Default:/var/spool/cron/crontabs
+```
