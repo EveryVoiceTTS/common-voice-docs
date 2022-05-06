@@ -33,6 +33,7 @@ They will not automatically be executed by /bin/sh.
 
 The files found will be run in the lexical sort order of the filenames.
 ```
+[`run-parts's` man page](https://nixdoc.net/man-pages/Linux/man8/run-parts.8.html)
 
 
 #### Help
