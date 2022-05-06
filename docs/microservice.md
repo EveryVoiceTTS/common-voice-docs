@@ -1,13 +1,13 @@
 # Task a New Image to Perform NRC Related Tasks
 
-## Backup
+## Audio Backup
 We've implemented an initial solution using nextcloud.
 For this purpose, we've added a `task` container to common-voice's current docker stack.
 This container runs `crond`.
 The script `synchronize2webdav.py` handle making a copy of the audio file from S3Proxy to nextcloud.
 
 
-### Setting up backup
+### Setting up Backup
 You need to copy and populate `.env-tasks`
 ```bash
 cp .env-tasks.example .env-tasks
@@ -17,7 +17,19 @@ cp .env-tasks.example .env-tasks
 * `WEBDAV_PASSWORD` as the form `PPPPP-PPPPP-PPPPP-PPPPP-PPPPP`
 
 
-### `crond`
+## Database Backup
+[how to mysqldump remote db from local machine](https://stackoverflow.com/a/2990732)
+Test done from `db` microservice.
+```
+mysqldump -P 3306 -h db -u root --password=PASSWORD voiceweb
+```
+We need to upload the output on the backup server.
+```
+curl -u $WEBDAV_LOGIN:$WEBDAV_PASSWORD -T <local file location> https://nextcloud.nrc-cnrc.gc.ca/remote.php/dav/files/$WEBDAV_LOGIN/
+```
+
+
+## `crond`
 This mircroservice was inspired by [Running cron jobs in a Docker Alpine container](https://devopsheaven.com/cron/docker/alpine/linux/2017/10/30/run-cron-docker-alpine.html).
 
 `crond`'s image is quite minimalist.
@@ -36,7 +48,7 @@ The files found will be run in the lexical sort order of the filenames.
 [`run-parts's` man page](https://nixdoc.net/man-pages/Linux/man8/run-parts.8.html)
 
 
-#### Help
+### Help
 ```bash
 crond --help
 BusyBox v1.34.1 (2022-04-04 10:19:27 UTC) multi-call binary.
