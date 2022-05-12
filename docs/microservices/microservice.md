@@ -18,7 +18,8 @@ cp .env-tasks.example .env-tasks
 
 
 ## Database Backup
-[how to mysqldump remote db from local machine](https://stackoverflow.com/a/2990732)
+* [how to mysqldump remote db from local machine](https://stackoverflow.com/a/2990732)
+* [Generate the backup of a single database](https://www.sqlshack.com/how-to-backup-and-restore-mysql-databases-using-the-mysqldump-command/)
 Test done from `db` microservice.
 ```
 mysqldump -P 3306 -h db -u root --password=PASSWORD voiceweb
