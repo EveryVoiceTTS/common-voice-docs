@@ -38,7 +38,7 @@ aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 `~/.aws/config`
 ```
 [default]
-region=us-west-2
+region=ca-central-1
 output=json
 ```
 
