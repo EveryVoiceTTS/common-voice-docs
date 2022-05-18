@@ -47,5 +47,17 @@ output=json
 aws s3 ls
 ```
 
-### Running a Docker Image on EC2
+## Running a Docker Image on EC2
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-container-image.html
+
+
+
+## Amazon Elastic Transcoder
+[Amazon Elastic Transcoder](https://aws.amazon.com/elastictranscoder/)
+[Transcoding audio with AWS Lambda](https://blog.danillouz.dev/transcoding-audio-with-aws-lambda/)
+[SoX - Sound eXchange | HomePage](http://sox.sourceforge.net/)
+[An audio conversion use case: comparison of execution speed between SoX, FFmpeg and MPlayer](https://www.stefaanlippens.net/audio_conversion_execution_speed_comparison_of_SoX_FFmpeg_MPlayer/#:~:text=For%2030%20second%20fragments%2C%20FFmpeg,to%20the%20desired%20fragment%20length.)
+
+
+## Lambda
+* [Tutorial – Publishing a custom runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html): In this tutorial, you create a Lambda function with a custom runtime. You start by including the runtime in the function's deployment package. Then you migrate it to a layer that you manage independently from the function. Finally, you share the runtime layer with the world by updating its resource-based permissions policy.
