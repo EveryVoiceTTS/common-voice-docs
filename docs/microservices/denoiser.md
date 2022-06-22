@@ -30,7 +30,7 @@ docker \
 
 [aws-lambda-cpp](https://github.com/awslabs/aws-lambda-cpp)
 ```bash
-aws iam create-role --role-name lambda-demo --assume-role-policy-document file://trust-policy.json
+aws iam create-role --role-name lambda-denoiser --assume-role-policy-document file://trust-policy.json
 aws iam attach-role-policy --role-name lambda-denoiser --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 ```
 ```bash
