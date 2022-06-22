@@ -1,4 +1,5 @@
 # Amazon
+[What Is Amazon Linux 2?](https://linuxhint.com/what_is_amazon_linux_2/)
 
 ## EC2
 ### Docker
@@ -53,6 +54,7 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-container-ima
 
 
 ## Amazon Elastic Transcoder
+Using Amazon Elastic Transcoder is more expansive than running our own lambda service.
 [Amazon Elastic Transcoder](https://aws.amazon.com/elastictranscoder/)
 [Transcoding audio with AWS Lambda](https://blog.danillouz.dev/transcoding-audio-with-aws-lambda/)
 [SoX - Sound eXchange | HomePage](http://sox.sourceforge.net/)
@@ -61,3 +63,61 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-container-ima
 
 ## Lambda
 * [Tutorial – Publishing a custom runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html): In this tutorial, you create a Lambda function with a custom runtime. You start by including the runtime in the function's deployment package. Then you migrate it to a layer that you manage independently from the function. Finally, you share the runtime layer with the world by updating its resource-based permissions policy.
+
+
+
+# ECR
+* [Amazon ECR Public Gallery](https://gallery.ecr.aws/)
+* [ECR Lambda Python](https://gallery.ecr.aws/lambda/python)
+* [ECR Amazon Linux](https://gallery.ecr.aws/amazonlinux/amazonlinux)
+* [ECR Lambda Provided](https://gallery.ecr.aws/lambda/provided)
+
+[Creating a container image for use on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-container-image.html)
+```bash
+aws ecr create-repository --repository-name common-voice --region ca-central-1
+```
+```json
+{
+   "repository": {
+      "repositoryArn": "arn:aws:ecr:ca-central-1:194183794986:repository/common-voice",
+         "registryId": "194183794986",
+         "repositoryName": "common-voice",
+         "repositoryUri": "194183794986.dkr.ecr.ca-central-1.amazonaws.com/common-voice",
+         "createdAt": "2022-05-24T16:40:41-04:00",
+         "imageTagMutability": "MUTABLE",
+         "imageScanningConfiguration": {
+            "scanOnPush": false
+         },
+         "encryptionConfiguration": {
+            "encryptionType": "AES256"
+         }
+   }
+}
+```
+
+
+```bash
+aws ecr get-login-password \
+| docker login --username AWS --password-stdin 194183794986.dkr.ecr.ca-central-1.amazonaws.com/common-voice
+```
+
+
+```bash
+docker tag common-voice_web:latest 194183794986.dkr.ecr.ca-central-1.amazonaws.com/common-voice
+docker push 194183794986.dkr.ecr.ca-central-1.amazonaws.com/common-voice
+```
+
+[Deploy applications on Amazon ECS using Docker Compose](https://aws.amazon.com/blogs/containers/deploy-applications-on-amazon-ecs-using-docker-compose/)
+[Deploying Docker containers on ECS](https://docs.docker.com/cloud/ecs-integration/)
+[Docker compose CLI Install](https://github.com/docker/compose-cli/blob/main/INSTALL.md)
+
+
+```bash
+#docker context create ecs
+#PATH=.:$PATH ./docker-linux-amd64 context create ecs common-voice
+PATH=.:$PATH ./docker-linux-amd64 context create ecs ecs.common-voice
+```
+```bash
+#PATH=.:$PATH ./docker-linux-amd64 context use common-voice
+PATH=.:$PATH ./docker-linux-amd64 --context ecs.common-voice compose up
+```
