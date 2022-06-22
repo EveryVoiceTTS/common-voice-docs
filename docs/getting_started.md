@@ -44,7 +44,7 @@ We need higher quality audio recordings.
 Importing all language utterances can be extemely long.
 You can create a subset or a different list of language utterances to import a new directory and have that directory use a the source of utterances by:
 ```diff
-+ CV_SENTENCES_FOLDER="server/data.project"
++ CV_SENTENCES_FOLDER="server/data.ilt"
 ```
 
 
