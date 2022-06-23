@@ -64,7 +64,7 @@ When recording utterances on the `speak` page, if someone clicks the report butt
 We've clicked the report button on the speak page and submitted a report of `difficult-to-pronounce`.
 The report was recorded in mysql.
 
-```
+```mysql
 mysql> use voiceweb;
 Database changed
 mysql> select * from reported_sentences;
@@ -74,4 +74,36 @@ mysql> select * from reported_sentences;
 |  1 | 8f7b3457-1a9f-4c9e-a44c-d33fadb3bb5c | 050848b77fdb38926067f69260010712d4758cd3f206967fb512d0b48bdf1223 | difficult-pronounce | 2022-06-22 22:44:39 |
 +----+--------------------------------------+------------------------------------------------------------------+---------------------+---------------------+
 1 row in set (0.00 sec)
+```
+
+
+## User Rerecording a Clip for a Sentence
+It looks like it is an error as in `clipSaveError` for a user to try to rerecord a clip for a sentence that he/she already have recorded.
+Can we delete the proper entry in `mysql` to get a user to rerecord an utterance for a given sentence?
+`lib/clip.ts`
+```tsx
+if (await this.model.db.clipExists(client_id, sentenceId)) {
+ this.clipSaveError(
+   headers,
+   response,
+   204,
+   `${clipFileName} already exists`,
+   ERRORS.ALREADY_EXISTS,
+   'clip'
+ );
+ return;
+} else {
+...
+```
+
+
+# Clientid?
+How are the `clientid`s generated?
+It seems to be at least tied to the browser because from the same pc using two different browsers, we will be assigned two differente `clientid`.
+
+If we can find the entry in `clips`, it is sufficient to delete the row to get a rerecording of that sentence by that said person.
+It isn't clear exactly how to associate the user with his `client_id`.
+```mysql
+USE voiceweb;
+DELETE FROM clips WHERE id = 1;
 ```
