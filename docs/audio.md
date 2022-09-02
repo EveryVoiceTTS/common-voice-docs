@@ -5,6 +5,12 @@ CV_TRANSCODE_CODEC='pcm_s16le'
 CV_TRANSCODE_FORMAT='wav'
 CV_TRANSCODE_SAMPLE_RATE='44100'
 ```
+or
+```
+CV_TRANSCODE_CODEC='pcm_s24le'
+CV_TRANSCODE_FORMAT='wav'
+CV_TRANSCODE_SAMPLE_RATE='96000'
+```
 
 ## Available Lossless Audio Codecs
 ```bash
