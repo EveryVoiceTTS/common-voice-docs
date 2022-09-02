@@ -211,3 +211,11 @@ sampleRate: 48000
 state: "running"
 [[Prototype]]: AudioContext
 ```
+
+
+## Random Note
+
+Capturing traffic between the browser and the server using the build-in developer tools in Brave, we can see that the payload sent to `http://localhost:9000/api/v1/git/clips` contains the string `OPUS` which suggests that the audio format used during transfer is OPUS.
+```
+Eß£BB÷BòBóBwebmBBSgÿÿÿÿÿÿÿI©f*×±B@MChromeWAChromeT®k¿®½×sÅÝ¡"¸0¡A_OPUSc¢OpusHead»áµG;bd C¶uÿÿÿÿÿÿÿç£A0{8_äÁ6øE]êQ%Õ³ÝDúEÁzC\Ù¯p'@¤_ÈØÐÌR:®kv03ï<¸yÐKMåÛwÝ ÙjÓe/`ÿò5PªR0ÀøxùÝ×A?_^æ5!*ÓDÜc0Á@Ð§_íã÷Ü\#,v³:Xèår6×võ:­Xn
+```
