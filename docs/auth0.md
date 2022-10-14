@@ -1,5 +1,6 @@
 # Auth0
 Like it or not, you need a [Auth0](https://auth0.com/) account to get Common Voice to work.
+Start by following these [instructions](https://github.com/common-voice/common-voice/blob/main/docs/DEVELOPMENT.md#authentication)
 Add the following lines to `.env-local-docker` which is locate at the root of the git repository.
 ```
 CV_AUTH0_DOMAIN="dev-24cisdir.us.auth0.com"
