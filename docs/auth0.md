@@ -7,6 +7,18 @@ CV_AUTH0_CLIENT_ID="<YOUR_ID>"
 CV_AUTH0_CLIENT_SECRET="<YOU_HAVE_A_SECRET>"
 ```
 
+## Allowed Callbacks URLS
+### Test
+We've tried getting the login/signup to work by using `ngrok` to get a temporary domain name.
+```bash
+ngrok http 8070
+```
+which return https://f1bc-76-65-177-171.ngrok.io.
+We then go to https://manage.auth0.com/dashboard/us/dev-24cisdir/applications and set `Common Voice` `Allowed Callback URLs` to:
+```
+http://f1bc-76-65-177-171.ngrok.io/callback
+```
+
 ## Whitelisting emails
 * [Auth0 Rules](https://auth0.com/docs/customize/rules)
 * [Manage User Access to Applications](https://auth0.com/docs/manage-users/user-accounts/manage-user-access-to-applications)
