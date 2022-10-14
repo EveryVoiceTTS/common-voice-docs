@@ -460,12 +460,12 @@ Chrome records natively only to .webm files. Firefox to .ogg.
         el.appendChild(node);
 
         title = document.createElement("H1");
-        title.setHTML(type);
+        title.innerText = type;
         node.appendChild(title);
 
         codecs.forEach((codec, id) => {
           const p = document.createElement("p");
-          p.setHTML(codec);
+          p.innerText = codec;
           if (id === 0) {
             p.setAttribute("style", "color:red");
           }
