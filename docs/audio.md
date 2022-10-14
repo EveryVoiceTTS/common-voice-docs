@@ -490,14 +490,59 @@ Chrome records natively only to .webm files. Firefox to .ogg.
 ```
 
 ## Brave
-```
--- Top supported Audio :  audio/webm;codecs=opus
-```
-```
--- All supported Audios :
-0 : "audio/webm;codecs=opus"
-1 : "audio/webm;codecs=OPUS"
-2 : "audio/webm;codecs=pcm"
-3 : "audio/webm;codecs=PCM"
-4 : "audio/webm"
-```
+### Audio
+* audio/webm;codecs=opus
+* audio/webm;codecs=OPUS
+* audio/webm;codecs=pcm
+* audio/webm;codecs=PCM
+* audio/webm
+
+## Video
+* video/webm;codecs=vp9
+* video/webm;codecs=VP9
+* video/webm;codecs=vp9.0
+* video/webm;codecs=VP9.0
+* video/webm;codecs=vp8
+* video/webm;codecs=VP8
+* video/webm;codecs=vp8.0
+* video/webm;codecs=VP8.0
+* video/webm;codecs=avc1
+* video/webm;codecs=AVC1
+* video/webm;codecs=h264
+* video/webm;codecs=H264
+* video/webm;codecs=opus
+* video/webm;codecs=OPUS
+* video/webm;codecs=pcm
+* video/webm;codecs=PCM
+* video/webm
+* video/x-matroska;codecs=vp9
+* video/x-matroska;codecs=VP9
+* video/x-matroska;codecs=vp9.0
+* video/x-matroska;codecs=VP9.0
+* video/x-matroska;codecs=vp8
+* video/x-matroska;codecs=VP8
+* video/x-matroska;codecs=vp8.0
+* video/x-matroska;codecs=VP8.0
+* video/x-matroska;codecs=avc1
+* video/x-matroska;codecs=AVC1
+* video/x-matroska;codecs=h264
+* video/x-matroska;codecs=H264
+* video/x-matroska;codecs=opus
+* video/x-matroska;codecs=OPUS
+* video/x-matroska;codecs=pcm
+* video/x-matroska;codecs=PCM
+* video/x-matroska
+
+
+## Firefox
+### Audio
+* audio/webm;codecs=opus
+* audio/webm
+* audio/ogg;codecs=opus
+* audio/ogg
+
+### Video
+* video/webm;codecs=vp8
+* video/webm;codecs=vp8.0
+* video/webm;codecs=opus
+* video/webm
