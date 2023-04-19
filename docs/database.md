@@ -7,6 +7,34 @@ We wondered what would happen if we updated the sentence text file with the corr
 Initially, we couldn't get our local instance to update its database whereas the instance running on AWS would.
 We had to disable `#CV_ENVIRONMENT="local"` in `.env-local-docker` to get the new sentences to be injected in the database.
 
+### Commands
+#### `docker`
+Start the initial Common-Voice stack.
+```bash
+CURRENT_UID=$(id -u):$(id -g) docker-compose --project-name "common-voice" up --detach
+CURRENT_UID=$(id -u):$(id -g) docker-compose --project-name "common-voice" logs -f web
+```
+
+Stop the `web` component.
+```bash
+CURRENT_UID=$(id -u):$(id -g) docker-compose --project-name "common-voice" stop web
+```
+
+Modify `server/data.ilt/git/update_sentence_samuel.txt`.
+Restart the `web` component which will update the database with the new corpus.
+
+```bash
+CURRENT_UID=$(id -u):$(id -g) docker-compose --project-name "common-voice" start web
+CURRENT_UID=$(id -u):$(id -g) docker-compose --project-name "common-voice" logs -f web
+ ```
+
+#### `mysql`
+As a reminder to access the database.
+```bash
+docker container exec -it db mysql -u root -p
+```
+
+
 ### Initial State
 As a test, using our local instance running under `docker`, we added 3 sentences to `git`.
 
