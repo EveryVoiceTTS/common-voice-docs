@@ -9,22 +9,25 @@ Note that the choice of `DEFAULT_LOCALE` must be in the list `locales/all.json`.
 
 ## How to Add a New Language
 Since we haven't found a wait to have the UI in one language and the utterances in another language, we've decided to add a new language code for the utterances and copy the localizations of English to that new language.
-* Add `git` & `str` to `locales/all.json` in order to get those new languages to show up in the UI's top-right dropdown box;
-* We weren't sure what `locales/contributable.json` is for so we also added `git` & `str` to it;
-* In order to get the new language names to properly show up in the UI, we added their full names to `locales/native-names.json`;
-* Again, we weren't sure what `locales/translated.json` is for and opted to add `git` & `str` to it;
-* Under `server/data`, we created two directories, `git/` & `str/` and populated them with some `utterances.txt`;
-* Finally, we want the UI to be in English even for `git` & `str` so we've decided to use the English localizations for them.  We create two directories, `git/` & `str/` under `web/locales/` and simply copied the two files from `en/`, `cross-locale.ftl` & `messages.ftl` to each of the new languages' directory.
+Note that you need to chose a valid iso code or else Common-Voice will not accept it.
+
+Let's see how to add `str` to Common-Voice:
+* Add `str` to `locales/all.json` in order to get that new language to show up in the UI's top-right dropdown box;
+* Add `str` to `locales/contributable.json`.  We weren't sure what `locales/contributable.json` is for so we also added `str` to it;
+* In order to get the new language name to properly show up in the UI, add its full name to `locales/native-names.json`.  This looks like `"str": "SENĆOŦEN Origin Stories",`;
+* Again, we weren't sure what `locales/translated.json` is for and opted to add `str`;
+* Under `server/data.ilt/`, create a directory, `str/` and populate it with some corpora file.  Your copora file MUST end with `.txt`;
+* Finally, we want the UI to be in English even for `str`, you will have to use the English localizations for your new language.  Create a directory, `web/locales/str/` and copy the two files `cross-locale.ftl` & `messages.ftl` from `web/locales/en/` to `web/locales/str/`.
 ```bash
-cp en/* git/
-cp en/* str/
+cp web/locales/en/* web/locales/str/
 ```
 
 ## Generating Utterances
+We also have a crude Lorem Ipsum generator but this is only meant to be used for testing.
 ```bash
-mkdir -p server/data/git
-mkdir -p server/data/str
+mkdir -p server/data.ilt/git
+mkdir -p server/data.ilt/str
 
-./generator.py > server/data/git/utterances.txt
-./generator.py > server/data/str/utterances.txt
+./generator.py > server/data.ilt/git/utterances.txt
+./generator.py > server/data.ilt/str/utterances.txt
 ```
