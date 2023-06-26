@@ -546,3 +546,28 @@ Chrome records natively only to .webm files. Firefox to .ogg.
 * video/webm;codecs=vp8.0
 * video/webm;codecs=opus
 * video/webm
+
+
+# Audio File without Duration
+Marc has noticed that our audio files don't have a valid header.
+The `duration` is hardcoded for all audio files regardless of its duration to `Duration       : 06:12:49.62 = 2147483647 samples ~ 1.67772e+06 CDDA sectors`.
+
+```
+Input File     : '5061f5c3-3bf9-42c6-a268-435c146efaf6/feca9ee51da4347a10d293ca0c4afb1a5fc43120e16d568d987e5839adee4e9f.wav'
+Channels       : 1
+Sample Rate    : 96000
+Precision      : 16-bit
+Duration       : 06:12:49.62 = 2147483647 samples ~ 1.67772e+06 CDDA sectors
+File Size      : 1.07M
+Bit Rate       : 384
+Sample Encoding: 16-bit Signed Integer PCM
+```
+
+Note that we've changed how the web client records audio because we wanted higher sample rate and lossless audio.
+The web client send and then the server code uses [stream-transcoder.js](https://www.npmjs.com/package/stream-transcoder#new-transcoderfile) which is a wrapper on top of `ffmpeg` to unwrap the raw audio to a WAV file.
+
+Someone on stackoverflow asked: [FFmpeg converting from video to audio missing duration](https://stackoverflow.com/questions/27390502/ffmpeg-converting-from-video-to-audio-missing-duration) which seems related to our current issue and the answer points to it been a problem with streamed files and `ffmpeg`.
+
+[WAV File Format](https://docs.fileformat.com/audio/wav/)
+
+We are going to see if we can write the audio stream to a temporary file and have that file converted to raw audio to see if the duration field in the header gets properly populated.
