@@ -322,7 +322,7 @@ This is where we create the audio blob which is encoded according to `getAudioFo
         return Promise.reject();
       }
 
-      return new Promise((res: Function, rej: Function) => {j
+      return new Promise((res: Function, rej: Function) => {
         this.jsNode.onaudioprocess = undefined;
         this.recorder.removeEventListener('stop', this.recorderListeners.stop);
         this.recorderListeners.stop = (e: Event) => {
