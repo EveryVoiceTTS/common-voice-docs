@@ -10,6 +10,9 @@ Note that the choice of `DEFAULT_LOCALE` must be in the list `locales/all.json`.
 ## How to Add a New Language
 Since we haven't found a wait to have the UI in one language and the utterances in another language, we've decided to add a new language code for the utterances and copy the localizations of English to that new language.
 Note that you need to chose a valid iso code or else Common-Voice will not accept it.
+You can find ISO-639-3 code here:
+* [List of ISO 639-3 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-3_codes) then click the first letter of your code.
+* [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 Let's see how to add `str` to Common-Voice:
 * Add `str` to `locales/all.json` in order to get that new language to show up in the UI's top-right dropdown box;
