@@ -19,11 +19,18 @@ Let's see how to add `str` to Common-Voice:
 * Add `str` to `locales/contributable.json`.  We weren't sure what `locales/contributable.json` is for so we also added `str` to it;
 * In order to get the new language name to properly show up in the UI, add its full name to `locales/native-names.json`.  This looks like `"str": "SENĆOŦEN Origin Stories",`;
 * Again, we weren't sure what `locales/translated.json` is for and opted to add `str`;
-* Under `server/data.ilt/`, create a directory, `str/` and populate it with some corpora file.  Your copora file MUST end with `.txt`;
-* Finally, we want the UI to be in English even for `str`, you will have to use the English localizations for your new language.  Create a directory, `web/locales/str/` and copy the two files `cross-locale.ftl` & `messages.ftl` from `web/locales/en/` to `web/locales/str/`.
-```bash
-cp web/locales/en/* web/locales/str/
-```
+* Finally, we want the UI to be in English even for `str`, you will have to use the English localizations for your new language.  We need to modify our template `web/locales/en/messages.ftl` to add our new language code with its description.
+    * Open `web/locales/en/messages.ftl`,
+    * Find the proper `##Languages` section and add `str = SENĆOŦEN`,
+    * Create a directory, `web/locales/str/` and copy the two files `cross-locale.ftl` & `messages.ftl` from `web/locales/en/` to `web/locales/str/`.
+   ```bash
+   cp web/locales/en/* web/locales/str/
+   ```
+    * Also copy the modified `web/locales/en/messages.ftl` to all other `web/locales/*/`.
+
+To add your sentences, you need to add them to `https://github.com/EveryVoiceTTS/common-voice-corpora` under `data/<ISO-639-3 Language Code>/`.
+Note that Your corpora file MUST end with `.txt`.
+
 
 ## Generating Utterances
 We also have a crude Lorem Ipsum generator but this is only meant to be used for testing.
