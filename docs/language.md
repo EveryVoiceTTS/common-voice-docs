@@ -15,18 +15,25 @@ You can find ISO-639-3 code here:
 * [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 Let's see how to add `str` to Common-Voice:
+* Visit https://github.com/EveryVoiceTTS/common-voice and make sure you are on branch `dev/ilt`;
 * Add `str` to `locales/all.json` in order to get that new language to show up in the UI's top-right dropdown box;
 * Add `str` to `locales/contributable.json`.  We weren't sure what `locales/contributable.json` is for so we also added `str` to it;
-* In order to get the new language name to properly show up in the UI, add its full name to `locales/native-names.json`.  This looks like `"str": "SENĆOŦEN Origin Stories",`;
+* In order to get the new language name to properly show up in the UI, add its full name to `locales/native-names.json`.  This looks like `"str": "SENĆOŦEN Origin Stories",`.;
 * Again, we weren't sure what `locales/translated.json` is for and opted to add `str`;
-* Finally, we want the UI to be in English even for `str`, you will have to use the English localizations for your new language.  We need to modify our template `web/locales/en/messages.ftl` to add our new language code with its description.
+* We want the UI to be in English even for `str`, you will have to use the English localizations for your new language.  We need to modify our template `web/locales/en/messages.ftl` to add our new language code with its description.
     * Open `web/locales/en/messages.ftl`,
     * Find the proper `##Languages` section and add `str = SENĆOŦEN`,
-    * Create a directory, `web/locales/str/` and copy the two files `cross-locale.ftl` & `messages.ftl` from `web/locales/en/` to `web/locales/str/`.
+    * Create a directory, `web/locales/str/` and copy the two files `cross-locale.ftl` & `messages.ftl` from `web/locales/en/` to `web/locales/str/`,
    ```bash
    cp web/locales/en/* web/locales/str/
    ```
-    * Also copy the modified `web/locales/en/messages.ftl` to all other `web/locales/*/`.
+    * We also need to update `messages.ftl` for all other locales.  For this, copy the modified `web/locales/en/messages.ftl` to all other `web/locales/*/`.
+* Commit your changes;
+* Wait for the new image to deploy the development;
+* Validate your changes on https://staging.everyvoice.ca which is the development server;
+* If your changes are correct, update the `ilt` branch with `dev/ilt`;
+* Wait for the new image to deploy to the production environment;
+* Finally, validate your changes on the production server https://studio.everyvoice.ca.
 
 To add your sentences, you need to add them to `https://github.com/EveryVoiceTTS/common-voice-corpora` under `data/<ISO-639-3 Language Code>/`.
 Note that Your corpora file MUST end with `.txt`.
